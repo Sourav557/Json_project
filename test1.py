@@ -2859,6 +2859,25 @@ data = {
     ]
 }
 
+# transformed_data = {}
+
+# for item in data["Sole Banking relation"]:
+#     # Get the value from "A/C HEAD - nan" to be the new key
+#     key = item.get("A/C HEAD - nan")
+
+#     # Only process if the key is not None (to skip the first entry in your example)
+#     if key is not None:
+#         # Create a copy of the item and remove the "A/C HEAD - nan" key
+#         value = item.copy()
+#         del value["A/C HEAD - nan"]
+
+#         # Add to the transformed dictionary
+#         transformed_data[key] = value
+
+# print(transformed_data)
+
+import json
+
 transformed_data = {}
 
 for item in data["Sole Banking relation"]:
@@ -2874,6 +2893,10 @@ for item in data["Sole Banking relation"]:
         # Add to the transformed dictionary
         transformed_data[key] = value
 
-print(transformed_data)
+# Store the output in a JSON file
+with open("transformed_output.json", "w") as f:
+    json.dump(transformed_data, f, indent=4)
+
+print("Data has been written to 'transformed_output.json'")
 
 
