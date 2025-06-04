@@ -1250,10 +1250,23 @@ title_to_code_map = [
 ]
 
 
+# output = {}
+# for item in title_to_code_map:
+#     for heading in item['AccountHeadings']:
+#         output[heading['Title']] = heading['Code']
+
+# print(output)
+
+
+import json
+
 output = {}
 for item in title_to_code_map:
     for heading in item['AccountHeadings']:
         output[heading['Title']] = heading['Code']
 
-print(output)
+# Save output to a JSON file
+with open('output.json', 'w') as f:
+    json.dump(output, f, indent=4)
 
+print(output)
